@@ -11,6 +11,9 @@
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
         // insert code here...
+        for (int i = 0; i < 10; i++) {
+            NSLog(@"this is %d index", i);
+        }
         NSLog(@"Hello, World!");
     }
     return 0;
