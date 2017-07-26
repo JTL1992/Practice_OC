@@ -7,11 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "person.h"
+#if DEBUG
+#define Log(...) NSLog(__VA_ARGS__)
+#else
+#define Log(...) 
+#endif
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        // insert code here...
-        NSLog(@"Hello, World!");
+        Person *person = [[Person alloc] init];
+        [person initPerson:@"alizbeo" lastName:@"Jiang" birtday:[[NSDate alloc] init] ];
+        [person sayHello];
     }
     return 0;
 }
