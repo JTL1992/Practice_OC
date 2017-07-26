@@ -8,17 +8,25 @@
 
 #import <Foundation/Foundation.h>
 
-int (^max)(int, int) = ^(int a, int b){
-    return a > b ? a : b;
-};
+typedef void (^Print)();
+@interface MyPrint : NSObject
+- (void) print: (Print) print;
+@end
+
+@implementation MyPrint
+
+- (void) print:(Print)print
+{
+    print();
+}
+@end
 
 int main(int argc, const char * argv[]) {
     @autoreleasepool {
-        int a = 10;
-        int b = 20;
-        
-        // insert code here...
-        NSLog(@"max is : %d", max(a, b));
+        MyPrint *print = [[MyPrint alloc] init];
+        [print print:^{
+            NSLog(@"\n this is a print");
+        }];
     }
     return 0;
 }
